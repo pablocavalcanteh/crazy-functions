@@ -1,4 +1,3 @@
-import { IllegalArgumentException } from "@/exceptions";
 import { validArgs } from "@/decorators";
 
 const splitObjectsByPropertyValues = (arr: any[], propertyName: string) => {
