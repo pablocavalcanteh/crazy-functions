@@ -1,4 +1,4 @@
-import { getAttributeValues } from "../../../functions";
+import { getPropertyValues } from "../../../functions";
 import { candidates } from "../../mocks";
 
 describe("get attribute values function", () => {
@@ -12,7 +12,7 @@ describe("get attribute values function", () => {
       "Frontend Developer",
     ];
 
-    const result = getAttributeValues(candidates, "occupation");
+    const result = getPropertyValues(candidates, "occupation");
 
     expect(result).toEqual(occupations);
   });

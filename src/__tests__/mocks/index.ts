@@ -18,4 +18,21 @@ const candidates = [
   { name: "Candidate 10" },
 ];
 
-export { products, candidates };
+const userInfos = [
+  {
+    name: "User 1",
+    email: "user@email.com",
+  },
+  {
+    address: "street 1",
+    phone: "123456789",
+  },
+  {
+    role: "user",
+  },
+  {
+    scopes: ["read", "write"],
+  },
+];
+
+export { products, candidates, userInfos };
