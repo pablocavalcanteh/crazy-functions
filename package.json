@@ -1,0 +1,28 @@
+{
+  "name": "crazy-utils",
+  "version": "1.0.0",
+  "description": "Library for helping you in several situations.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:cov": "jest --clearCache && jest --coverage",
+    "build": "tsc --build && tsc-alias",
+    "save": "npm run build && npm publish"
+  },
+  "keywords": [
+    "Utils"
+  ],
+  "author": "Pablo Cavalcante",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
