@@ -1,19 +1,19 @@
-#  Crazy Utils
+#  Crazy Functions
 
-Library for helping you in several situations.
+Library of the functions for helping you in several situations.
 
 ## Installation
 
-Use the node package manager [npm](https://nodejs.org/en/download/package-manager) to install crazy-utils.
+Use the node package manager [npm](https://nodejs.org/en/download/package-manager) to install crazy-functions.
 
 ```bash
-npm install crazy-utils
+npm install crazy-functions
 ```
 
 ## Usage
 
 ```typescript
-import { groupObjects } from "crazy-utils"
+import { groupObjects } from "crazy-functions"
 
 const products = [
   { name: "Product 1", category: "Informatic" },
@@ -59,7 +59,7 @@ groupObjects(arr: any[], propertyName: string): any
 &nbsp;
 
 ```typescript
-import { getAttributeValues } from "crazy-utils"
+import { getAttributeValues } from "crazy-functions"
 
 const candidates = [
   { name: "Candidate 1", occupation: "Backend Developer" },
@@ -99,7 +99,7 @@ getAttributeValues(arr: any[], propertyName: string): any
 &nbsp;
 
 ```typescript
-import { splitObjectsByPropertyValues } from "crazy-utils"
+import { splitObjectsByPropertyValues } from "crazy-functions"
 
 const candidates = [
   { name: "Candidate 1", occupation: "Backend Developer" },
