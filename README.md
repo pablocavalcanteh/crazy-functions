@@ -86,7 +86,7 @@ cf.getAttributeValues(candidates, "occupation");
       "Software Engineer",
       "Software Developer",
       "Frontend Developer",
-    ]
+]
 */
 ```
 
@@ -175,7 +175,7 @@ cf.splitObjectsByPropertyValues(candidates, "occupation");
         },
       ],
     ]
-
+*/
 ```
 
 ## API
@@ -220,7 +220,8 @@ cf.createObjectFromObjectsArray({}, userInfos);
       phone: "123456789",
       role: "user",
       scopes: ["read", "write"],
-    }
+}
+*/
 ```
 
 ## API
@@ -229,6 +230,29 @@ This function returns an object with all properties of the objects array.
 
 ```typescript
 createObjectFromObjectsArray(initialObject: object = {}, arr: Array<{ [key: string]: any }): object
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.range(5, 10);
+
+/** returns
+  [5, 6, 7, 8, 9, 10]
+*/
+```
+
+## API
+
+This function returns an array with defined range.
+
+```typescript
+range(start: number, end: number): Array<number>
 ```
 
 ## License
