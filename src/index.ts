@@ -1,7 +1,9 @@
 import {
-  getAttributeValues,
+  getPropertyValues,
   groupObjects,
   splitObjectsByPropertyValues,
 } from "./functions";
 
-export { groupObjects, getAttributeValues, splitObjectsByPropertyValues };
+const cf = { groupObjects, getPropertyValues, splitObjectsByPropertyValues };
+
+export default cf;

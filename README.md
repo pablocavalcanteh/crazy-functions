@@ -1,4 +1,4 @@
-#  Crazy Functions
+# Crazy Functions
 
 Library of the functions for helping you in several situations.
 
@@ -13,7 +13,7 @@ npm install crazy-functions
 ## Usage
 
 ```typescript
-import { groupObjects } from "crazy-functions"
+import cf from "crazy-functions";
 
 const products = [
   { name: "Product 1", category: "Informatic" },
@@ -22,7 +22,7 @@ const products = [
   { name: "Product 4", category: "Informatic" },
 ];
 
-groupObjects(products, "category");
+cf.groupObjects(products, "category");
 
 /** returns 
 {
@@ -46,20 +46,22 @@ groupObjects(products, "category");
 }
 
 */
-
 ```
+
 ## API
 
 This function grouping objects of the array based on the property passed by parameter.
 
 ```typescript
-groupObjects(arr: any[], propertyName: string): any
+groupObjects(arr: any[], propertyName: string): object
 ```
+
 ---
+
 &nbsp;
 
 ```typescript
-import { getAttributeValues } from "crazy-functions"
+import cf from "crazy-functions";
 
 const candidates = [
   { name: "Candidate 1", occupation: "Backend Developer" },
@@ -74,7 +76,7 @@ const candidates = [
   { name: "Candidate 10" },
 ];
 
-getAttributeValues(candidates, "occupation");
+cf.getAttributeValues(candidates, "occupation");
 
 /** returns 
 [
@@ -86,8 +88,8 @@ getAttributeValues(candidates, "occupation");
       "Frontend Developer",
     ]
 */
-
 ```
+
 ## API
 
 This function returns an array with values ​​of the property passed as a parameter.
@@ -95,11 +97,13 @@ This function returns an array with values ​​of the property passed as a par
 ```typescript
 getAttributeValues(arr: any[], propertyName: string): any
 ```
+
 ---
+
 &nbsp;
 
 ```typescript
-import { splitObjectsByPropertyValues } from "crazy-functions"
+import cf from "crazy-functions";
 
 const candidates = [
   { name: "Candidate 1", occupation: "Backend Developer" },
@@ -114,9 +118,9 @@ const candidates = [
   { name: "Candidate 10" },
 ];
 
-splitObjectsByPropertyValues(candidates, "occupation");
+cf.splitObjectsByPropertyValues(candidates, "occupation");
 
-/** returns 
+/** returns
 [
       [
         {
@@ -173,12 +177,58 @@ splitObjectsByPropertyValues(candidates, "occupation");
     ]
 
 ```
+
 ## API
 
 This function returns an array of arrays of objects separated by the values ​​of a property passed as a parameter.
 
 ```typescript
-splitObjectsByPropertyValues(arr: any[], propertyName: string): any
+splitObjectsByPropertyValues(arr: any[], propertyName: string): Array<Array<any>>
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+const userInfos = [
+  {
+    name: "User 1",
+    email: "user@email.com",
+  },
+  {
+    address: "street 1",
+    phone: "123456789",
+  },
+  {
+    role: "user",
+  },
+  {
+    scopes: ["read", "write"],
+  },
+];
+
+cf.createObjectFromObjectsArray({}, userInfos);
+
+/** returns
+{
+      name: "User 1",
+      email: "user@email.com",
+      address: "street 1",
+      phone: "123456789",
+      role: "user",
+      scopes: ["read", "write"],
+    }
+```
+
+## API
+
+This function returns an object with all properties of the objects array.
+
+```typescript
+createObjectFromObjectsArray(initialObject: object = {}, arr: Array<{ [key: string]: any }): object
 ```
 
 ## License

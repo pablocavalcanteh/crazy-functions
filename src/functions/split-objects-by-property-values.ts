@@ -1,10 +1,20 @@
 import { validArgs } from "@/decorators";
 
-const splitObjectsByPropertyValues = (arr: any[], propertyName: string) => {
+/**
+ * This function returns an array of arrays of objects separated by the values ​​of a property passed as a parameter.
+ *
+ * @param arr Array of objects.
+ * @param propertyName Name of the property used to split the objects.
+ * @returns Object with array of splited objects.
+ */
+const splitObjectsByPropertyValues = (
+  arr: any[],
+  propertyName: string
+): Array<Array<any>> => {
   const propertyValues = Array.from(
     new Set(
       arr.map((obj) => {
-        obj[propertyName];
+        return obj[propertyName];
       })
     )
   );

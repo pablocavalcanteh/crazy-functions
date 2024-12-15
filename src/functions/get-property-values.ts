@@ -1,6 +1,13 @@
 import { validArgs } from "@/decorators";
 
-const getAttributeValues = (arr: any[], propertyName: string): any[] => {
+/**
+ * This function returns an array with values ​​of the property passed by parameter.
+ *
+ * @param arr Array of objects.
+ * @param propertyName Name of the property used to split the objects.
+ * @returns Array of the property values passed by parameter.
+ */
+const getPropertyValues = (arr: any[], propertyName: string): any[] => {
   const propValues = arr
     .map((obj) => obj[propertyName])
     .filter((value) => value !== undefined);
@@ -8,4 +15,4 @@ const getAttributeValues = (arr: any[], propertyName: string): any[] => {
   return [...new Set(propValues)];
 };
 
-export default validArgs(getAttributeValues);
+export default validArgs(getPropertyValues);
