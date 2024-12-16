@@ -1,6 +1,6 @@
 {
   "name": "crazy-functions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Library of the functions for helping you in several situations.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
