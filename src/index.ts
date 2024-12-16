@@ -7,6 +7,9 @@ import {
   arrayDiff,
   arrayIntersection,
   arrayUnion,
+  capitalizeFirstLetter,
+  capitalizeAllFirstLetter,
+  formatCurrency,
 } from "./functions";
 
 const cf = {
@@ -18,6 +21,9 @@ const cf = {
   arrayDiff,
   arrayIntersection,
   arrayUnion,
+  capitalizeFirstLetter,
+  capitalizeAllFirstLetter,
+  formatCurrency,
 };
 
 export default cf;

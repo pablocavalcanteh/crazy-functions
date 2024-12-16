@@ -6,6 +6,9 @@ import range from "./range";
 import arrayDiff from "./array-diff";
 import arrayIntersection from "./array-intersection";
 import arrayUnion from "./array-union";
+import capitalizeFirstLetter from "./capitalize-first-letter";
+import capitalizeAllFirstLetter from "./capitalize-all-first-letter";
+import formatCurrency from "./format-currency";
 
 export {
   groupObjects,
@@ -15,5 +18,8 @@ export {
   range,
   arrayDiff,
   arrayIntersection,
-  arrayUnion
+  arrayUnion,
+  capitalizeFirstLetter,
+  capitalizeAllFirstLetter,
+  formatCurrency
 };

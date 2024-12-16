@@ -322,6 +322,72 @@ This function returns the unios between two arrays.
 ```typescript
 <T extends string | number>( arr1: T[], arr2: T[]): Array<T>
 ```
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.capitalizeFirstLetter("hello world!");
+
+/** returns
+  Hello world!
+*/
+```
+
+## API
+
+This function capitalize the first letter of word.
+
+```typescript
+capitalizeFirstLetter(str: string): string
+```
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.capitalizeAllFirstLetter(["hello", "world!"]);
+
+/** returns
+  ["Hello", "World!"]
+*/
+```
+
+## API
+
+This function capitalize all the first letter of words.
+
+```typescript
+capitalizeAllFirstLetter(str: Array<string>): Array<string>
+```
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.formatCurrency(1000);
+
+/** returns
+    R$1,000.00
+*/
+```
+
+## API
+
+This function formats numbers to currencies.
+
+```typescript
+formatCurrency(value: number, locale: string = "default", options: object = { style: "currency", currency: "BRL"}): string
+```
 
 ## License
 
