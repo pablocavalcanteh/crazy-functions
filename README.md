@@ -255,6 +255,74 @@ This function returns an array with defined range.
 range(start: number, end: number): Array<number>
 ```
 
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.arrayDiff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+
+/** returns
+  [1, 2]
+*/
+```
+
+## API
+
+This function returns the difference between two arrays.
+
+```typescript
+<T extends string | number>( arr1: T[], arr2: T[]): Array<T>
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.arrayIntersection([1, 2, 3], [3]);
+
+/** returns
+  [3]
+*/
+```
+
+## API
+
+This function returns the intersection between two arrays.
+
+```typescript
+<T extends string | number>( arr1: T[], arr2: T[]): Array<T>
+```
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+
+cf.arrayUnion([1, 2, 3], [4, 5, 6]);
+
+/** returns
+  [1, 2, 3, 4, 5, 6]
+*/
+```
+
+## API
+
+This function returns the unios between two arrays.
+
+```typescript
+<T extends string | number>( arr1: T[], arr2: T[]): Array<T>
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

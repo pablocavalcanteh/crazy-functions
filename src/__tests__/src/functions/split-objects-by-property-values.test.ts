@@ -60,7 +60,6 @@ describe("split objects by property values function", () => {
       ];
 
     const resultFunction = splitObjectsByPropertyValues(candidates, "occupation");
-    console.log(resultFunction);
     expect(resultFunction).toEqual(result);
   });
 });
