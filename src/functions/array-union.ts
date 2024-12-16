@@ -1,5 +1,12 @@
 import { IllegalArgumentException } from "@/exceptions";
 
+/**
+ * This function returns the union between two arrays.
+ *
+ * @param arr1 Array of strings or numbers.
+ * @param arr2 Array of strings or numbers.
+ * @returns Array with the union between two arrays.
+ */
 const arrayUnion = <T extends string | number>(
   arr1: T[],
   arr2: T[]

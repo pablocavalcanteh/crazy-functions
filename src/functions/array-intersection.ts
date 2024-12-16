@@ -1,5 +1,12 @@
 import { IllegalArgumentException } from "@/exceptions";
 
+/**
+ * This function returns the intersection between two arrays.
+ *
+ * @param arr1 Array of strings or numbers.
+ * @param arr2 Array of strings or numbers.
+ * @returns Array with the intersection between two arrays.
+ */
 const arrayIntersection = <T extends string | number>(
   arr1: T[],
   arr2: T[]

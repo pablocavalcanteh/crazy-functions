@@ -342,7 +342,7 @@ cf.capitalizeFirstLetter("hello world!");
 This function capitalize the first letter of word.
 
 ```typescript
-capitalizeFirstLetter(str: string): string
+capitalizeFirstLetter(word: string): string
 ```
 ---
 
@@ -364,7 +364,7 @@ cf.capitalizeAllFirstLetter(["hello", "world!"]);
 This function capitalize all the first letter of words.
 
 ```typescript
-capitalizeAllFirstLetter(str: Array<string>): Array<string>
+capitalizeAllFirstLetter(words: Array<string>): Array<string>
 ```
 ---
 
