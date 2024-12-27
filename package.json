@@ -1,6 +1,6 @@
 {
   "name": "crazy-functions",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Library of the functions for helping you in several situations.",
   "repository": {
     "type": "git",
@@ -12,6 +12,7 @@
   "homepage": "https://github.com/pablocavalcanteh/crazy-functions#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  
   "scripts": {
     "test": "jest",
     "test:cov": "jest --clearCache && jest --coverage",
@@ -19,7 +20,9 @@
     "save": "npm run build && npm publish"
   },
   "keywords": [
-    "Utils"
+    "Utils",
+    "Crazy functions",
+    "TypeScript"
   ],
   "author": "Pablo Cavalcante",
   "license": "ISC",

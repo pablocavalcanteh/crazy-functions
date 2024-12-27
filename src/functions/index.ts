@@ -9,6 +9,8 @@ import arrayUnion from "./array-union";
 import capitalizeFirstLetter from "./capitalize-first-letter";
 import capitalizeAllFirstLetter from "./capitalize-all-first-letter";
 import formatCurrency from "./format-currency";
+import pluck from "./pluck";
+import remove from "./remove";
 
 export {
   groupObjects,
@@ -21,5 +23,7 @@ export {
   arrayUnion,
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
-  formatCurrency
+  formatCurrency,
+  pluck,
+  remove,
 };

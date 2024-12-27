@@ -1,3 +1,4 @@
-import { ScalesValues } from './ScalesValues';
+import { NonEmptyArray } from './non-empty-array.type';
+import { ScalesValues } from './scales-values.type';
 
-export { ScalesValues };
+export { ScalesValues, NonEmptyArray };

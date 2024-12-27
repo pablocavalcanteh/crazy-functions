@@ -1,4 +1,4 @@
-import IllegalArgumentException from "./IllegalArgumentException";
+import IllegalArgumentException from "./illegal-argument.exception";
 
 export {
   IllegalArgumentException,
