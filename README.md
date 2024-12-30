@@ -76,7 +76,7 @@ const candidates = [
   { name: "Candidate 10" },
 ];
 
-cf.getAttributeValues(candidates, "occupation");
+cf.getPropertyValues(candidates, "occupation");
 
 /** returns 
 [
@@ -95,7 +95,7 @@ cf.getAttributeValues(candidates, "occupation");
 This function returns an array with values ​​of the property passed as a parameter.
 
 ```typescript
-getAttributeValues(arr: any[], propertyName: string): any
+getPropertyValues(arr: any[], propertyName: string): any
 ```
 
 ---
@@ -383,7 +383,7 @@ cf.formatCurrency(1000);
 This function formats numbers to currencies.
 
 ```typescript
-formatCurrency(value: number, locale: string = "default", options: object = { style: "currency", currency: "BRL"}): string
+cf.formatCurrency(value: number, locale: string = "default", options: object = { style: "currency", currency: "BRL"}): string
 ```
 
 ---
@@ -492,7 +492,7 @@ const project = {
   },
 };
 
-pluck(project, "technologies");
+cf.pluck(project, "technologies");
 
 /** returns
    [
@@ -508,7 +508,31 @@ pluck(project, "technologies");
 This function returns the value of the last property passed as a parameter.
 
 ```typescript
-function pluck(obj: object, ...keys: NonEmptyArray<string>): any;
+pluck(obj: object, ...keys: NonEmptyArray<string>): any;
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+ const arr = [1, 2, 3, 4, 5]
+
+cf.shuffle(arr);
+
+/** return could be
+   [5, 2, 4, 1, 3]
+*/
+```
+
+## API
+
+Shuffle an array
+
+```typescript
+shuffle(arr: any[], fn: (() => number) | undefined = undefined): any[]
 ```
 
 ## License

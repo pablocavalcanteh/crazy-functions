@@ -11,6 +11,7 @@ import capitalizeAllFirstLetter from "./capitalize-all-first-letter";
 import formatCurrency from "./format-currency";
 import pluck from "./pluck";
 import remove from "./remove";
+import shuffle from "./shuffle";
 
 export {
   groupObjects,
@@ -26,4 +27,5 @@ export {
   formatCurrency,
   pluck,
   remove,
+  shuffle,
 };
