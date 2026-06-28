@@ -10,7 +10,22 @@ import {
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
   formatCurrency,
-} from "./functions";
+  pluck,
+  remove,
+  shuffle,
+  cloneDeep,
+  isEmpty,
+  compact,
+  unique,
+  flatten,
+  chunk,
+  merge,
+  pick,
+  omit,
+  memoize,
+  debounce,
+  delay,
+} from './functions';
 
 const cf = {
   groupObjects,
@@ -24,6 +39,21 @@ const cf = {
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
   formatCurrency,
+  pluck,
+  remove,
+  shuffle,
+  cloneDeep,
+  isEmpty,
+  compact,
+  unique,
+  flatten,
+  chunk,
+  merge,
+  pick,
+  omit,
+  memoize,
+  debounce,
+  delay,
 };
 
 export default cf;
