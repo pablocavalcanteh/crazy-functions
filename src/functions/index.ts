@@ -1,18 +1,4 @@
-import groupObjects from "./group-objects";
-import getPropertyValues from "./get-property-values";
-import splitObjectsByPropertyValues from "./split-objects-by-property-values";
-import createObjectFromObjectsArray from "./create-object-from-objects-array";
-import range from "./range";
-import arrayDiff from "./array-diff";
-import arrayIntersection from "./array-intersection";
-import arrayUnion from "./array-union";
-import capitalizeFirstLetter from "./capitalize-first-letter";
-import capitalizeAllFirstLetter from "./capitalize-all-first-letter";
-import formatCurrency from "./format-currency";
-import pluck from "./pluck";
-import remove from "./remove";
-import shuffle from "./shuffle";
-
+// Array Functions
 export {
   groupObjects,
   getPropertyValues,
@@ -22,10 +8,34 @@ export {
   arrayDiff,
   arrayIntersection,
   arrayUnion,
+  flatten,
+  chunk,
+  shuffle,
+  unique,
+  compact,
+} from './array';
+
+// String Functions
+export {
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
-  formatCurrency,
-  pluck,
+} from './string';
+
+// Object Functions
+export {
+  pick,
+  omit,
+  merge,
+  cloneDeep,
   remove,
-  shuffle,
-};
+  pluck,
+} from './object';
+
+// Utility Functions
+export { isEmpty } from './utility';
+
+// Format Functions
+export { formatCurrency } from './format';
+
+// Higher-Order Functions
+export { memoize, debounce, delay } from './higher-order';
