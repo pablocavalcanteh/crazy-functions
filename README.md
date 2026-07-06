@@ -296,6 +296,29 @@ range(start: number, end: number): Array<number>
 ```typescript
 import cf from "crazy-functions";
 
+cf.removeDuplicatesByProperty(
+  [{ id: 1, name: "John" }, { id: 1, name: "Johnny" }, { id: 2, name: "Jane" }],
+  "id"
+);
+
+/** returns
+  [{ id: 1, name: "John" }, { id: 2, name: "Jane" }]
+*/
+```
+
+This function removes duplicate objects from an array based on a property value, keeping only the first occurrence.
+
+```typescript
+removeDuplicatesByProperty<T extends Record<string, any>>(arr: T[], property: keyof T): T[]
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
 cf.arrayDiff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
 
 /** returns
@@ -389,6 +412,66 @@ This function capitalize all the first letter of words.
 
 ```typescript
 capitalizeAllFirstLetter(words: Array<string>): Array<string>
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+cf.camelCase("hello-world-foo");
+
+/** returns
+  helloWorldFoo
+*/
+```
+
+This function converts a string to camelCase format.
+
+```typescript
+camelCase(str: string): string
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+cf.snakeCase("helloWorldFoo");
+
+/** returns
+  hello_world_foo
+*/
+```
+
+This function converts a string to snake_case format.
+
+```typescript
+snakeCase(str: string): string
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+cf.kebabCase("hello_world_foo");
+
+/** returns
+  hello-world-foo
+*/
+```
+
+This function converts a string to kebab-case format.
+
+```typescript
+kebabCase(str: string): string
 ```
 
 ---
@@ -610,6 +693,46 @@ merge<T extends Record<string, any>>(target: T, ...sources: Partial<T>[]): T
 ```typescript
 import cf from "crazy-functions";
 
+cf.getNestedProperty({ a: { b: { c: 42 } } }, "a.b.c");
+
+/** returns
+   42
+*/
+```
+
+This function retrieves a nested property value using dot notation.
+
+```typescript
+getNestedProperty<T = any>(obj: Record<string, any>, path: string, defaultValue?: any): T
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+cf.setNestedProperty({}, "a.b.c", 42);
+
+/** returns
+   { a: { b: { c: 42 } } }
+*/
+```
+
+This function sets a nested property value using dot notation, creating intermediate objects as needed.
+
+```typescript
+setNestedProperty<T extends Record<string, any>>(obj: T, path: string, value: any): T
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
 const obj = { original: true };
 
 const cloned = cf.cloneDeep(obj);
@@ -812,6 +935,27 @@ This function creates a promise that resolves after a specified delay.
 
 ```typescript
 delay(ms: number): Promise<void>
+```
+
+---
+
+&nbsp;
+
+```typescript
+import cf from "crazy-functions";
+
+const pipeline = cf.pipe(
+  (value: number) => value + 1,
+  (value: number) => value * 2
+);
+
+pipeline(5); // 12
+```
+
+This function creates a composition of functions, executing them from left to right with output of each as input to the next.
+
+```typescript
+pipe<T>(...fns: Array<(arg: any) => any>): (arg: T) => any
 ```
 
 ---
