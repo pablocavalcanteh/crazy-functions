@@ -11,6 +11,7 @@ import chunk from './chunk';
 import shuffle from './shuffle';
 import unique from './unique';
 import compact from './compact';
+import removeDuplicatesByProperty from './remove-duplicates-by-property';
 
 export {
   groupObjects,
@@ -26,4 +27,5 @@ export {
   shuffle,
   unique,
   compact,
+  removeDuplicatesByProperty,
 };

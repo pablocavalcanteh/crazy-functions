@@ -13,12 +13,16 @@ export {
   shuffle,
   unique,
   compact,
+  removeDuplicatesByProperty,
 } from './array';
 
 // String Functions
 export {
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
+  camelCase,
+  snakeCase,
+  kebabCase,
 } from './string';
 
 // Object Functions
@@ -29,6 +33,8 @@ export {
   cloneDeep,
   remove,
   pluck,
+  getNestedProperty,
+  setNestedProperty,
 } from './object';
 
 // Utility Functions
@@ -38,4 +44,4 @@ export { isEmpty } from './utility';
 export { formatCurrency } from './format';
 
 // Higher-Order Functions
-export { memoize, debounce, delay } from './higher-order';
+export { memoize, debounce, delay, pipe } from './higher-order';
