@@ -1,11 +1,12 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Node.js Package
+# Automatically publish to npm when tags are pushed to main branch
+name: npm-publish
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -15,19 +16,54 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm test
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test
+      
+      - name: Check coverage (100% branches/functions required)
+        run: npm run test:cov
+      
+      - name: Build
+        run: npm run build
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Publish to npm
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  create-release:
+    needs: publish-npm
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
