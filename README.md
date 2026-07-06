@@ -48,6 +48,47 @@ cf.groupObjects(products, "category");
 */
 ```
 
+## New in v1.3.0
+
+### Array
+
+```typescript
+cf.removeDuplicatesByProperty(
+  [{ id: 1, name: "John" }, { id: 1, name: "Johnny" }, { id: 2, name: "Jane" }],
+  "id"
+);
+// [{ id: 1, name: "John" }, { id: 2, name: "Jane" }]
+```
+
+### Object
+
+```typescript
+cf.getNestedProperty({ a: { b: { c: 42 } } }, "a.b.c", 0);
+// 42
+
+cf.setNestedProperty({}, "a.b.c", 42);
+// { a: { b: { c: 42 } } }
+```
+
+### String
+
+```typescript
+cf.camelCase("hello-world-foo"); // helloWorldFoo
+cf.snakeCase("helloWorldFoo");   // hello_world_foo
+cf.kebabCase("hello_world_foo"); // hello-world-foo
+```
+
+### Higher-Order
+
+```typescript
+const pipeline = cf.pipe(
+  (value: number) => value + 1,
+  (value: number) => value * 2
+);
+
+pipeline(5); // 12
+```
+
 ## API
 
 ### Array Functions

@@ -7,8 +7,12 @@ import {
   arrayDiff,
   arrayIntersection,
   arrayUnion,
+  removeDuplicatesByProperty,
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
+  camelCase,
+  snakeCase,
+  kebabCase,
   formatCurrency,
   pluck,
   remove,
@@ -22,9 +26,12 @@ import {
   merge,
   pick,
   omit,
+  getNestedProperty,
+  setNestedProperty,
   memoize,
   debounce,
   delay,
+  pipe,
 } from './functions';
 
 const cf = {
@@ -36,8 +43,12 @@ const cf = {
   arrayDiff,
   arrayIntersection,
   arrayUnion,
+  removeDuplicatesByProperty,
   capitalizeFirstLetter,
   capitalizeAllFirstLetter,
+  camelCase,
+  snakeCase,
+  kebabCase,
   formatCurrency,
   pluck,
   remove,
@@ -51,9 +62,12 @@ const cf = {
   merge,
   pick,
   omit,
+  getNestedProperty,
+  setNestedProperty,
   memoize,
   debounce,
   delay,
+  pipe,
 };
 
 export default cf;

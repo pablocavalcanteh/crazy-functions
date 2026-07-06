@@ -15,11 +15,15 @@
 - `shuffle`
 - `unique`
 - `compact`
+- `removeDuplicatesByProperty`
 
 ## String
 
 - `capitalizeFirstLetter`
 - `capitalizeAllFirstLetter`
+- `camelCase`
+- `snakeCase`
+- `kebabCase`
 
 ## Object
 
@@ -29,6 +33,8 @@
 - `cloneDeep`
 - `remove`
 - `pluck`
+- `getNestedProperty`
+- `setNestedProperty`
 
 ## Utility
 
@@ -43,3 +49,4 @@
 - `memoize`
 - `debounce`
 - `delay`
+- `pipe`
