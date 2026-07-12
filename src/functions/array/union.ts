@@ -7,7 +7,7 @@ import { IllegalArgumentException } from "@/exceptions";
  * @param arr2 Array of strings or numbers.
  * @returns Array with the union between two arrays.
  */
-const arrayUnion = <T extends string | number>(
+const union = <T extends string | number>(
   arr1: T[],
   arr2: T[]
 ): Array<T> => {
@@ -29,4 +29,4 @@ const arrayUnion = <T extends string | number>(
   return union;
 };
 
-export default arrayUnion;
+export default union;

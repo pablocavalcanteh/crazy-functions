@@ -1,9 +1,9 @@
-import { createObjectFromObjectsArray } from '@/functions';
+import { flattenToObject } from '@/functions';
 import { userInfos } from "../../../mocks";
 
-describe("createObjectFromObjectsArray function", () => {
+describe("flattenToObject", () => {
   it("should return an object with the properties of the objects in the array", () => {
-    const result = createObjectFromObjectsArray({}, userInfos);
+    const result = flattenToObject({}, userInfos);
 
     expect(result).toEqual({
       name: "User 1",
@@ -17,13 +17,13 @@ describe("createObjectFromObjectsArray function", () => {
 
   it("should throw an error when initialObject is invalid", () => {
     // @ts-ignore
-    expect(() => createObjectFromObjectsArray(null, userInfos)).toThrow(
+    expect(() => flattenToObject(null, userInfos)).toThrow(
       "Invalid argument: initialObject"
     );
   });
 
   it("should use the default initial object when it is not provided", () => {
-    expect(createObjectFromObjectsArray(undefined, [{ name: "User" }])).toEqual({
+    expect(flattenToObject(undefined, [{ name: "User" }])).toEqual({
       name: "User",
     });
   });
@@ -31,14 +31,14 @@ describe("createObjectFromObjectsArray function", () => {
   it("should return the initial object when the array is empty", () => {
     const initialObject = { name: "Initial" };
 
-    expect(createObjectFromObjectsArray(initialObject, [])).toEqual(initialObject);
+    expect(flattenToObject(initialObject, [])).toEqual(initialObject);
   });
 
   it("should ignore null items and inherited properties", () => {
     const item = Object.create({ inherited: "value" });
     item.name = "User";
 
-    const result = createObjectFromObjectsArray({}, [null as any, item]);
+    const result = flattenToObject({}, [null as any, item]);
 
     expect(result).toEqual({ name: "User" });
   });

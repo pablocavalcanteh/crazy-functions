@@ -1,27 +1,27 @@
-import { arrayDiff } from '@/functions';
+import { diff } from '@/functions';
 
-describe("arrayDiff function", () => {
+describe("diff", () => {
   it("should return an array of numbers with the difference of two arrays of numbers", () => {
-    const result = arrayDiff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+    const result = diff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
     expect(result).toEqual([1, 2]);
   });
 
   it("should throw an exception whe first array of numbers is null", () => {
     // @ts-ignore
-    expect(() => arrayDiff(null, [3, 4, 5, 6, 7])).toThrow(
+    expect(() => diff(null, [3, 4, 5, 6, 7])).toThrow(
       "First array arr1 is invalid!"
     );
   });
 
   it("should return an empty array of numbers when first array of numbers is empty ", () => {
-    expect(arrayDiff([], [3, 4, 5, 6, 7])).toEqual([]);
+    expect(diff([], [3, 4, 5, 6, 7])).toEqual([]);
   });
 
   it("should return the first array when second array is empty", () => {
-    expect(arrayDiff([1, 2, 3], [])).toEqual([1, 2, 3]);
+    expect(diff([1, 2, 3], [])).toEqual([1, 2, 3]);
   });
 
   it("should return an array of strings with the difference of two arrays of strings", () => {
-    expect(arrayDiff(["a", "b", "c"], ["c"])).toEqual(["a", "b"]);
+    expect(diff(["a", "b", "c"], ["c"])).toEqual(["a", "b"]);
   });
 });

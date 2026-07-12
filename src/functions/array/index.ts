@@ -1,11 +1,11 @@
 import groupObjects from './group-objects';
 import getPropertyValues from './get-property-values';
 import splitObjectsByPropertyValues from './split-objects-by-property-values';
-import createObjectFromObjectsArray from './create-object-from-objects-array';
+import flattenToObject from './flatten-to-object';
 import range from './range';
-import arrayDiff from './array-diff';
-import arrayIntersection from './array-intersection';
-import arrayUnion from './array-union';
+import diff from './diff';
+import intersection from './intersection';
+import union from './union';
 import flatten from './flatten';
 import chunk from './chunk';
 import shuffle from './shuffle';
@@ -17,11 +17,11 @@ export {
   groupObjects,
   getPropertyValues,
   splitObjectsByPropertyValues,
-  createObjectFromObjectsArray,
+  flattenToObject,
   range,
-  arrayDiff,
-  arrayIntersection,
-  arrayUnion,
+  diff,
+  intersection,
+  union,
   flatten,
   chunk,
   shuffle,
