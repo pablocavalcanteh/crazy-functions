@@ -1,4 +1,4 @@
-# Run tests and coverage checks on pull requests
+# Run unit tests and coverage checks on pull requests and develop branch
 name: test-and-coverage
 
 on:
@@ -11,8 +11,9 @@ on:
       - develop
 
 jobs:
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
+    name: Unit Tests (${{ matrix.node-version }})
     strategy:
       matrix:
         node-version: [18.x, 20.x]
@@ -29,20 +30,58 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Run unit tests (verbose)
+        run: npm test -- --verbose
 
       - name: Check coverage (100% branches/functions required)
         run: npm run test:cov
 
-      - name: Build TypeScript
-        run: npm run build
-
-      - name: Upload coverage
+      - name: Upload coverage to Codecov
         if: matrix.node-version == '20.x'
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage/coverage-final.json
           flags: unittests
-          name: codecov-umbrella
+          name: codecov-${{ matrix.node-version }}
           fail_ci_if_error: false
+
+  build:
+    runs-on: ubuntu-latest
+    name: Type Check & Build
+    needs: unit-tests
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check TypeScript
+        run: npm run build
+
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint & Format Check
+    needs: unit-tests
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for TypeScript errors
+        run: npm run build
+
