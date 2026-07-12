@@ -1,9 +1,9 @@
-import { remove } from '@/functions';
+import { removeProperties } from '@/functions';
 import { project } from "../../../mocks";
 
-describe("remove function", () => {
+describe("removeProperties", () => {
   it("should remove the keys from the object", () => {
-    const result = remove(project, "extra", "lider");
+    const result = removeProperties(project, "extra", "lider");
     expect(result).toEqual({
       name: "Project 1",
       description: "Description Project 1",
@@ -27,19 +27,19 @@ describe("remove function", () => {
   });
 
   it("should remove keys provided as an array", () => {
-    const result = remove({ name: "Project", status: "active" }, ["status"]);
+    const result = removeProperties({ name: "Project", status: "active" }, ["status"]);
 
     expect(result).toEqual({ name: "Project" });
   });
 
   it("should throw an error when the first argument is invalid", () => {
     // @ts-ignore
-    expect(() => remove(null, "name")).toThrow("First argument must be an object!");
+    expect(() => removeProperties(null, "name")).toThrow("First argument must be an object!");
   });
 
   it("should throw an error when no keys are provided", () => {
     // @ts-ignore
-    expect(() => remove({ name: "Project" })).toThrow(
+    expect(() => removeProperties({ name: "Project" })).toThrow(
       "At least one key must be provided!"
     );
   });
@@ -48,6 +48,6 @@ describe("remove function", () => {
     const obj = { name: "Project" };
 
     // @ts-ignore
-    expect(remove(obj, 123)).toEqual(obj);
+    expect(removeProperties(obj, 123)).toEqual(obj);
   });
 });

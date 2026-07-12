@@ -1,18 +1,19 @@
 import { IllegalArgumentException } from "@/exceptions";
 import { NonEmptyArray } from "@/types";
 
-function remove(obj: object, keysArray: NonEmptyArray<string>): object;
-function remove(obj: object, ...keys: NonEmptyArray<string>): object;
+function removeProperties(obj: object, keysArray: NonEmptyArray<string>): object;
+function removeProperties(obj: object, ...keys: NonEmptyArray<string>): object;
 
 /**
- * This function removes the last property of the object passed as a parameter.
- *
- * @param obj Object to remove the property.
- * @param ...args List of properties to remove from the object.
- * @returns Object without the specified properties.
- * @throws {IllegalArgumentException} If the first argument is not an object or if no key is provided.
+ * Removes properties from an object
+ * @param obj - Object to remove properties from
+ * @param ...args - List of property keys to remove from the object
+ * @returns Object without the specified properties
+ * @throws {IllegalArgumentException} If the first argument is not an object or if no key is provided
+ * @example
+ * removeProperties({a: 1, b: 2, c: 3}, 'b', 'c') // → {a: 1}
  */
-function remove(obj: object, ...args: any[]): object {
+function removeProperties(obj: object, ...args: any[]): object {
   if (obj === null || typeof obj !== "object") {
     throw new IllegalArgumentException("First argument must be an object!");
   }
@@ -47,4 +48,4 @@ function remove(obj: object, ...args: any[]): object {
   return obj;
 }
 
-export default remove;
+export default removeProperties;

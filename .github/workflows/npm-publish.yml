@@ -9,8 +9,46 @@ on:
       - 'v*'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Unit Tests
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests (verbose)
+        if: matrix.node-version != '20.x'
+        run: npm test -- --verbose
+
+      - name: Run unit tests + coverage (verbose)
+        if: matrix.node-version == '20.x'
+        run: npm run test:cov -- --verbose
+
+      - name: Upload coverage to Codecov
+        if: matrix.node-version == '20.x'
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
   build:
     runs-on: ubuntu-latest
+    name: Build & Type Check
+    needs: test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,18 +59,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Run tests
-        run: npm test
-      
-      - name: Check coverage (100% branches/functions required)
-        run: npm run test:cov
-      
-      - name: Build
+      - name: Build TypeScript
         run: npm run build
 
   publish-npm:
-    needs: build
+    needs: [test, build]
     runs-on: ubuntu-latest
+    name: Publish to npm
     if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
@@ -56,6 +89,7 @@ jobs:
   create-release:
     needs: publish-npm
     runs-on: ubuntu-latest
+    name: Create GitHub Release
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v4

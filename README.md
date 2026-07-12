@@ -247,7 +247,7 @@ const userInfos = [
   },
 ];
 
-cf.createObjectFromObjectsArray({}, userInfos);
+cf.flattenToObject({}, userInfos);
 
 /** returns
 {
@@ -264,7 +264,7 @@ cf.createObjectFromObjectsArray({}, userInfos);
 This function returns an object with all properties of the objects array.
 
 ```typescript
-createObjectFromObjectsArray(initialObject: object = {}, arr: Array<{ [key: string]: any }>): object
+flattenToObject(initialObject: object = {}, arr: Array<{ [key: string]: any }>): object
 ```
 
 ---
@@ -317,7 +317,7 @@ removeDuplicatesByProperty<T extends Record<string, any>>(arr: T[], property: ke
 ```typescript
 import cf from "crazy-functions";
 
-cf.arrayDiff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+cf.diff([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
 
 /** returns
   [1, 2]
@@ -337,7 +337,7 @@ This function returns the difference between two arrays.
 ```typescript
 import cf from "crazy-functions";
 
-cf.arrayIntersection([1, 2, 3], [3]);
+cf.intersection([1, 2, 3], [3]);
 
 /** returns
   [3]
@@ -357,7 +357,7 @@ This function returns the intersection between two arrays.
 ```typescript
 import cf from "crazy-functions";
 
-cf.arrayUnion([1, 2, 3], [4, 5, 6]);
+cf.union([1, 2, 3], [4, 5, 6]);
 
 /** returns
   [1, 2, 3, 4, 5, 6]
@@ -379,7 +379,7 @@ This function returns the unios between two arrays.
 ```typescript
 import cf from "crazy-functions";
 
-cf.capitalizeFirstLetter("hello world!");
+cf.capitalize("hello world!");
 
 /** returns
   Hello world!
@@ -389,7 +389,7 @@ cf.capitalizeFirstLetter("hello world!");
 This function capitalize the first letter of word.
 
 ```typescript
-capitalizeFirstLetter(word: string): string
+capitalize(word: string): string
 ```
 
 ---
@@ -399,7 +399,7 @@ capitalizeFirstLetter(word: string): string
 ```typescript
 import cf from "crazy-functions";
 
-cf.capitalizeAllFirstLetter(["hello", "world!"]);
+cf.capitalizeWords(["hello", "world!"]);
 
 /** returns
   ["Hello", "World!"]
@@ -409,7 +409,7 @@ cf.capitalizeAllFirstLetter(["hello", "world!"]);
 This function capitalize all the first letter of words.
 
 ```typescript
-capitalizeAllFirstLetter(words: Array<string>): Array<string>
+capitalizeWords(words: Array<string>): Array<string>
 ```
 
 ---
@@ -532,7 +532,7 @@ const project = {
   },
 };
 
-cf.remove(project, "extra", "lider");
+cf.removeProperties(project, "extra", "lider");
 
 /** returns
    {
@@ -561,7 +561,7 @@ cf.remove(project, "extra", "lider");
 This function removes the last property of the object passed as a parameter.
 
 ```typescript
-function remove(obj: object, ...args: any[]): object;
+function removeProperties(obj: object, ...args: any[]): object;
 ```
 
 ---

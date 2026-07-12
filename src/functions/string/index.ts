@@ -1,12 +1,12 @@
-import capitalizeFirstLetter from './capitalize-first-letter';
-import capitalizeAllFirstLetter from './capitalize-all-first-letter';
+import capitalize from './capitalize';
+import capitalizeWords from './capitalize-words';
 import camelCase from './camel-case';
 import snakeCase from './snake-case';
 import kebabCase from './kebab-case';
 
 export {
-  capitalizeFirstLetter,
-  capitalizeAllFirstLetter,
+  capitalize,
+  capitalizeWords,
   camelCase,
   snakeCase,
   kebabCase,
