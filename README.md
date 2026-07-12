@@ -48,8 +48,6 @@ cf.groupObjects(products, "category");
 */
 ```
 
-## New in v1.3.0
-
 ### Array
 
 ```typescript
