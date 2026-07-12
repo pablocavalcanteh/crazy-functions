@@ -7,7 +7,7 @@ import { IllegalArgumentException } from "@/exceptions";
  * @param arr Array of objects.
  * @returns Object with all the properties of all the objects in the array passed as a parameter.
  */
-const createObjectFromObjectsArray = (
+const flattenToObject = (
   initialObject: object = {},
   arr: Array<{ [key: string]: any }>
 ): object => {
@@ -37,4 +37,4 @@ const createObjectFromObjectsArray = (
   return obj;
 };
 
-export default createObjectFromObjectsArray;
+export default flattenToObject;

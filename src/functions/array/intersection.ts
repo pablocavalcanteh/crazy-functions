@@ -7,7 +7,7 @@ import { IllegalArgumentException } from "@/exceptions";
  * @param arr2 Array of strings or numbers.
  * @returns Array with the intersection between two arrays.
  */
-const arrayIntersection = <T extends string | number>(
+const intersection = <T extends string | number>(
   arr1: T[],
   arr2: T[]
 ): Array<T> => {
@@ -28,4 +28,4 @@ const arrayIntersection = <T extends string | number>(
   return intersection;
 };
 
-export default arrayIntersection;
+export default intersection;
